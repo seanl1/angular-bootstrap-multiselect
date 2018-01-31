@@ -94,6 +94,13 @@
                     updateSelectionLists();
                 };
 
+                // Update selection options if data changes
+                $scope.$watch('options', function(newVal) {
+                    $scope.options = newVal;
+                    $scope.resolvedOptions = newVal;
+                    updateSelectionLists();
+                }, true);
+
                 $ngModelCtrl.$render = function () {
                     updateSelectionLists();
                 };
